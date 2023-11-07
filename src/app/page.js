@@ -88,7 +88,7 @@ export default function Home() {
   const [value, setValue] = useState(0);
 
   useEffect(() => {
-    fetch("http://localhost:5000")
+    fetch("https://wealth-shack.onrender.com/")
       .then((res) => res.json())
       .then((res) => {
         setPortfolio(res);
