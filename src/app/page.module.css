@@ -1,0 +1,88 @@
+.main {
+  margin-top: 12rem;
+}
+
+.traderCount {
+  margin-top: 2rem;
+}
+
+
+
+.topBbottomMargin {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
+.newsPaperIcon {
+  background: #181818;
+  color: #dfff88;
+  padding: 10px 10px 10px 13px;
+  margin-right: 10px;
+  border-radius: 4px;
+}
+
+.investIcon {
+  background: #000;
+  color: #dfff88;
+  padding: 10px 10px 10px 13px;
+  margin-right: 10px;
+  border-radius: 4px;
+}
+
+.footerIcon {
+  margin-right: 10px;
+}
+
+
+.cardLine {
+  background-color: #DFFF88;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  height: 2px;
+  width: 50%;
+}
+
+.paralledBanner {
+  margin: 9rem 0 5rem 0;
+}
+.paralledBanner h1 {
+  width: 50%;
+}
+.welcomeBackCard {
+  width: 100%;
+}
+
+.currencyCard {
+  width: 40%;
+  margin-top: -50px;
+}
+
+.cryptoCards {
+  width: 40%;
+}
+
+.pricingValue {
+  font-size: 2.2rem;
+  color: #DFFF88;
+  padding-left: 0.3rem;
+  padding-right: 0.3rem;
+}
+
+.pricingCheck{
+  margin-right: 0.5rem;
+
+}
+
+.quotesIcon{
+  position: absolute;
+}
+
+.analyticsCard {
+  border-radius: 13px;;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  padding-top: 3rem;
+  padding-left: 1rem;
+  background-image: url(http://advanture.icu/tradex/wp-content/uploads/sites/39/2023/08/Background-Glow.jpg);
+}
+
