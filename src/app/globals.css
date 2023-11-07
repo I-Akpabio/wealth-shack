@@ -356,5 +356,9 @@ body input[type=range]::-ms-thumb:active {
   margin-left: 3rem;
 }
 
+.cardOnBlackBg {
+  margin-bottom: 2rem;
+}
+
 
 }

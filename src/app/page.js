@@ -54,13 +54,12 @@ class Example extends PureComponent {
 
   render() {
     const data = this.props.chartData;
-    console.log(data);
     return (
       <ResponsiveContainer width="100%" height="100%">
         <PieChart width={800} height={800} onMouseEnter={this.onPieEnter}>
           <Pie
             data={data}
-            cx={250}
+            cx={200}
             cy={150}
             innerRadius={90}
             outerRadius={130}
@@ -475,6 +474,7 @@ export default function Home() {
               <div className="col-8">
                 <div className="row">
                   <div className="col-lg-6 col-sm-12">
+                  
                     <div className="d-flex align-items-start">
                       <span className={styles.newsPaperIcon}>
                         <FontAwesomeIcon
@@ -652,7 +652,7 @@ export default function Home() {
 
               <div className="row mt-5">
                 <div className="col-lg-3 col-sm-12">
-                  <div className="card" style={{ paddingTop: "1.5rem" }}>
+                  <div className="card cardOnBlackBg" style={{ paddingTop: "1.5rem" }}>
                     <div className="card-body">
                       <div>
                         <span className={styles.investIcon}>
@@ -680,7 +680,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="col-lg-3 col-sm-12">
-                  <div className="card" style={{ paddingTop: "1.5rem" }}>
+                  <div className="card cardOnBlackBg" style={{ paddingTop: "1.5rem" }}>
                     <div className="card-body">
                       <div>
                         <span className={styles.investIcon}>
@@ -707,7 +707,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="col-lg-3 col-sm-12">
-                  <div className="card" style={{ paddingTop: "1.5rem" }}>
+                  <div className="card cardOnBlackBg" style={{ paddingTop: "1.5rem" }}>
                     <div className="card-body">
                       <div>
                         <span className={styles.investIcon}>
@@ -734,7 +734,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="col-lg-3 col-sm-12">
-                  <div className="card" style={{ paddingTop: "1.5rem" }}>
+                  <div className="card cardOnBlackBg" style={{ paddingTop: "1.5rem" }}>
                     <div className="card-body">
                       <div>
                         <span className={styles.investIcon}>
@@ -772,7 +772,7 @@ export default function Home() {
             <div className="row mt-5">
               {[1, 2, 3].map((e) => (
                 <div className="col-lg-4 col-sm-12" key={e}>
-                  <div className="card">
+                  <div className="card cardOnBlackBg">
                     <div className="card-body">
                       <h4>Core</h4>
                       <p>$1 in assets</p>
@@ -870,7 +870,7 @@ export default function Home() {
 
               <div className="row review-card-container">
                 <div className="col-lg-6 col-sm-12">
-                  <div className="card">
+                  <div className="card cardOnBlackBg">
                     <div className="mb-3">
                       {[1, 2, 3, 4, 5].map((e) => (
                         <img
