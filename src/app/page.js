@@ -22,6 +22,7 @@ import {
   faPhone,
   faRecordVinyl,
 } from "@fortawesome/free-solid-svg-icons";
+import { AnimatePresence, motion } from "framer-motion";
 
 const COLORS = [
   "#0088FE",
@@ -125,13 +126,18 @@ export default function Home() {
 
   return (
     <>
-      <nav
-        className="navbar navbar-expand-lg navbar-dark pt-3"
-        style={{ backgroundColor: "black" }}
-      >
-        <div className="container-fluid">
+      <div className="container-xl">
+        <nav
+          className="navbar navbar-expand-lg navbar-dark pt-3"
+          style={{ backgroundColor: "black" }}
+        >
           <a className="navbar-brand" href="#">
-            <img src="https://i.ibb.co/98D5dGq/wealth-Shacklogo.png" alt="" width={160} height={80} />
+            <img
+              src="https://i.ibb.co/98D5dGq/wealth-Shacklogo.png"
+              alt=""
+              width={160}
+              height={80}
+            />
           </a>
           <button
             className="navbar-toggler"
@@ -237,8 +243,8 @@ export default function Home() {
               </button>
             </form>
           </div>
-        </div>
-      </nav>
+        </nav>
+      </div>
 
       <main className={styles.main}>
         <div className="container-xl">
@@ -289,6 +295,13 @@ export default function Home() {
             </div>
           </div>
         </div>
+        {/* <AnimatePresence>
+         <motion.div initial={{opacity: 0, y: 15}}
+           animate={{opacity: 1, y: 0}}
+           exit={{opacity:0, y: 15}}
+           transition={{delay: 0.15}}
+
+         > */}
 
         <div className="container-xl section">
           <div>
@@ -330,6 +343,11 @@ export default function Home() {
             />
           </div>
         </div>
+
+        {/* 
+</motion.div>
+
+</AnimatePresence> */}
 
         <div className="main-widget">
           <div className="row mt-4">
@@ -474,7 +492,6 @@ export default function Home() {
               <div className="col-8">
                 <div className="row">
                   <div className="col-lg-6 col-sm-12">
-                  
                     <div className="d-flex align-items-start">
                       <span className={styles.newsPaperIcon}>
                         <FontAwesomeIcon
@@ -652,7 +669,10 @@ export default function Home() {
 
               <div className="row mt-5">
                 <div className="col-lg-3 col-sm-12">
-                  <div className="card cardOnBlackBg" style={{ paddingTop: "1.5rem" }}>
+                  <div
+                    className="card cardOnBlackBg"
+                    style={{ paddingTop: "1.5rem" }}
+                  >
                     <div className="card-body">
                       <div>
                         <span className={styles.investIcon}>
@@ -680,7 +700,10 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="col-lg-3 col-sm-12">
-                  <div className="card cardOnBlackBg" style={{ paddingTop: "1.5rem" }}>
+                  <div
+                    className="card cardOnBlackBg"
+                    style={{ paddingTop: "1.5rem" }}
+                  >
                     <div className="card-body">
                       <div>
                         <span className={styles.investIcon}>
@@ -707,7 +730,10 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="col-lg-3 col-sm-12">
-                  <div className="card cardOnBlackBg" style={{ paddingTop: "1.5rem" }}>
+                  <div
+                    className="card cardOnBlackBg"
+                    style={{ paddingTop: "1.5rem" }}
+                  >
                     <div className="card-body">
                       <div>
                         <span className={styles.investIcon}>
@@ -734,7 +760,10 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="col-lg-3 col-sm-12">
-                  <div className="card cardOnBlackBg" style={{ paddingTop: "1.5rem" }}>
+                  <div
+                    className="card cardOnBlackBg"
+                    style={{ paddingTop: "1.5rem" }}
+                  >
                     <div className="card-body">
                       <div>
                         <span className={styles.investIcon}>
