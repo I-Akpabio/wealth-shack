@@ -336,5 +336,7 @@ body input[type=range]::-ms-thumb:active {
       padding-left: 1rem;
   }
 
-
+.resultLabelContainer{
+  display: none;
+}
 }

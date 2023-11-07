@@ -341,7 +341,7 @@ export default function Home() {
                 </div>
               ) : null}
 
-              <div className="row">
+              <div className="row resultLabelContainer">
                 {activePortfolio
                   ? portfolioDetails.map((item) => {
                       const key = item.key;
