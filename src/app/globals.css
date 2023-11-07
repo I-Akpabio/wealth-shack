@@ -352,6 +352,9 @@ body input[type=range]::-ms-thumb:active {
 .resultLabelContainer{
   display: none;
 }
+.detailsRoot{
+  margin-left: 3rem;
+}
 
 
 }
