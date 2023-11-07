@@ -132,7 +132,7 @@ export default function Home() {
       >
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
-            <img src="wealthShacklogo.PNG" alt="" width={160} height={80} />
+            <img src="https://i.ibb.co/98D5dGq/wealth-Shacklogo.png" alt="" width={160} height={80} />
           </a>
           <button
             className="navbar-toggler"
@@ -336,7 +336,7 @@ export default function Home() {
           <div className="row mt-4">
             <div className="col-lg-4 col-sm-6 chartRoot">
               {portfolio.length > 0 ? (
-                <div style={{ height: "400px" }}>
+                <div className="widgetContainer">
                   <Example chartData={chartData} />
                 </div>
               ) : null}

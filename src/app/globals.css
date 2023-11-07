@@ -321,6 +321,10 @@ body input[type=range]::-ms-thumb:active {
   cursor: grabbing;
 }
 
+.widgetContainer{
+  height: 400px;
+}
+
 @media (max-width: 1140px) {
   .section{
       padding-left: 5rem;
@@ -336,7 +340,18 @@ body input[type=range]::-ms-thumb:active {
       padding-left: 1rem;
   }
 
+
+
+.widgetContainer {
+  height: 290px;
+}
+}
+
+@media (max-width: 500px) {
+
 .resultLabelContainer{
   display: none;
 }
+
+
 }
