@@ -29,7 +29,7 @@ const COLORS = [
   "#FFBB28",
   "#FF8042",
   "#1134AE",
-  "#55F89B",
+  "#FF0000",
   "#AAC293",
   "#98ACFF",
   "#0088FE",
@@ -92,12 +92,13 @@ export default function Home() {
       .then((res) => res.json())
       .then((res) => {
         setPortfolio(res);
-        console.log(res);
-        setChartData([
-          { name: "Nigerian Stock", value: res[0]["nigerianStock"] },
-          { name: "Nigerian Bonds", value: res[0]["nigerianBonds"] },
-          { name: "Foreign Bonds", value: res[0]["foreignBonds"] },
-        ]);
+
+        const active = res[0];
+        const updated = portfolioDetails.map((item) => ({
+          name: item.name,
+          value: active[item.key],
+        }));
+        setChartData(updated);
       });
   }, []);
 
@@ -106,11 +107,12 @@ export default function Home() {
       return;
     }
 
-    setChartData([
-      { name: "Nigerian Stock", value: portfolio[risk]["nigerianStock"] },
-      { name: "Nigerian Bonds", value: portfolio[risk]["nigerianBonds"] },
-      { name: "Foreign Bonds", value: portfolio[risk]["foreignBonds"] },
-    ]);
+    const active = portfolio[risk];
+    const updated = portfolioDetails.map((item) => ({
+      name: item.name,
+      value: active[item.key],
+    }));
+    setChartData(updated);
   }, [risk]);
 
   useEffect(() => {
@@ -130,7 +132,7 @@ export default function Home() {
       >
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
-            Navbars
+            <img src="wealthShacklogo.PNG" alt="" width={160} height={80} />
           </a>
           <button
             className="navbar-toggler"
@@ -242,8 +244,8 @@ export default function Home() {
       <main className={styles.main}>
         <div className="container-xl">
           <div className="row section">
-            <div className="col-5">
-              <h1 className="text-white">
+            <div className="col-lg-5 col-sm-12">
+              <h1 className="text-white mb-3">
                 Managed investing made to grow your wealths
               </h1>
 
@@ -260,29 +262,15 @@ export default function Home() {
                 Learn More <FontAwesomeIcon icon={faAngleRight} />
               </button>
             </div>
-            <div className="col-3">
+            <div className="col-lg-3">
               <img
+                className="d-lg-block"
                 style={{ width: "100%" }}
                 src="http://advanture.icu/tradex/wp-content/uploads/sites/39/2023/08/Half-Mobile-2-606x1024.png"
                 alt=""
               />
             </div>
             <div className="col-4">
-              {/* <div className="row">
-                <div className="col-4">
-                  <span>USD 955</span>
-                  <span></span>
-                </div>
-                <div className="col-4">
-                  <span>USD 955</span>
-                  <span></span>
-                </div>
-                <div className="col-4">
-                  <span>USD 955</span>
-                  <span></span>
-                </div>
-              </div> */}
-
               <h1 className={styles.traderCount}>235,000 +</h1>
 
               <p>Trusted Clients</p>
@@ -313,23 +301,23 @@ export default function Home() {
           </div>
 
           <div className="row stats">
-            <div className="col-3">
+            <div className="col-lg-3 col-sm-12">
               <h4>Stats That Matter</h4>
               <p>Lorem ipsum dolor sit.</p>
             </div>
-            <div className="col-2">
+            <div className="col-lg-2 col-sm-12">
               <h4>690K</h4>
               <p>Trusted clients</p>
             </div>
-            <div className="col-2">
+            <div className="col-lg-2 col-sm-12">
               <h4>$43B+</h4>
               <p>In assets managed</p>
             </div>
-            <div className="col-2">
+            <div className="col-lg-2 col-sm-12">
               <h4>4.8</h4>
               <p>Apple App Store</p>
             </div>
-            <div className="col-2">
+            <div className="col-lg-2 col-sm-12">
               <h4>4.9</h4>
               <p>Google Play Store</p>
             </div>
@@ -361,8 +349,10 @@ export default function Home() {
                       return (
                         <div className="col-6" key={item.key}>
                           <div className="d-flex mb-2">
-                         
-                            <h5 className="result-label text-white">
+                            <h5
+                              style={{ paddingLeft: "20px" }}
+                              className="result-label text-white"
+                            >
                               {" "}
                               {item.name}:{" "}
                             </h5>
@@ -430,23 +420,25 @@ export default function Home() {
           </div>
         </div>
 
-
         <div className="lightBlackBG">
           <div className="container-xxl section">
             <div className="row big-padding big-margin">
-              <div className="col-5">
+              <div className="col-lg-5 col-sm-12">
                 <h2 className="pl-3">
-                  We do things differently at Reliable Technology Servicess
+                  We do things differently at WealthShack Technology Services
                 </h2>
               </div>
 
-              <div className="col-7">
-                <p>We do things differently at Reliable Technology Servicess</p>
+              <div className="col-lg-5 col-sm-12">
+                <p>
+                  We offer a wide range of portfolio management options to give
+                  you the flexiblity to manage your assets
+                </p>
               </div>
             </div>
 
             <div className="row mt-5">
-              <div className="col-4">
+              <div className="col-lg-4 col-sm-12">
                 <div className={styles.analyticsCard}>
                   <div className="d-flex justify-content-between">
                     <div>
@@ -471,43 +463,105 @@ export default function Home() {
                       />
                     </span>
                     <div className="mb-4">
-                      <h3>Trade from China</h3>
+                      <h3>More interest on your cash.</h3>
                       <h6>Indice Training guide</h6>
                     </div>
                   </div>
 
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Officia laboriosam quibusdam eum quia quae?
-                  </p>
+                  <p>More interest on your cash.</p>
                 </div>
               </div>
 
               <div className="col-8">
                 <div className="row">
-                  {[1, 2, 3, 4].map((e, index) => (
-                    <div className="col-6" key={index}>
-                      <div className="d-flex align-items-start">
-                        <span className={styles.newsPaperIcon}>
-                          <FontAwesomeIcon
-                            className={styles.pricingCheck}
-                            icon={faNewspaper}
-                          />
-                        </span>
-                        <div className="mb-4">
-                          <h4>Trade from China</h4>
-                          <h6>Indice Training guide</h6>
-                        </div>
+                  <div className="col-lg-6 col-sm-12">
+                    <div className="d-flex align-items-start">
+                      <span className={styles.newsPaperIcon}>
+                        <FontAwesomeIcon
+                          className={styles.pricingCheck}
+                          icon={faNewspaper}
+                        />
+                      </span>
+                      <div className="mb-4">
+                        <h4>Automated Portfolio</h4>
+                        <h6>Award-winning automation</h6>
                       </div>
-
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Officia laboriosam quibusdam eum quia quae?
-                      </p>
-
-                      <div className={styles.cardLine} />
                     </div>
-                  ))}
+
+                    <p>
+                      Get the benefits of bonds (like earning dividends and tax
+                      advantages) without the balancing act of managing
+                      locked-in rates or maturity dates.
+                    </p>
+
+                    <div className={styles.cardLine} />
+                  </div>
+                  <div className="col-lg-6 col-sm-12">
+                    <div className="d-flex align-items-start">
+                      <span className={styles.newsPaperIcon}>
+                        <FontAwesomeIcon
+                          className={styles.pricingCheck}
+                          icon={faNewspaper}
+                        />
+                      </span>
+                      <div className="mb-4">
+                        <h4>Diversified index investing</h4>
+                        <h6>Access to wide range or diversified stock.</h6>
+                      </div>
+                    </div>
+
+                    <p>
+                      Come bears or bulls, our expert-built portfolios help you
+                      stay diversified for your goals. Limit your risk, minimize
+                      your taxes, and maximize your returns
+                    </p>
+
+                    <div className={styles.cardLine} />
+                  </div>
+                  <div className="col-lg-6 col-sm-12">
+                    <div className="d-flex align-items-start">
+                      <span className={styles.newsPaperIcon}>
+                        <FontAwesomeIcon
+                          className={styles.pricingCheck}
+                          icon={faNewspaper}
+                        />
+                      </span>
+                      <div className="mb-4">
+                        <h4>Smart Stock Discovery</h4>
+                        <h6>Discover and buy stocks</h6>
+                      </div>
+                    </div>
+
+                    <p>
+                      We make sense of the market so you can make more strategic
+                      stock choices, faster. Browse dozens of themes and
+                      opportunities, dive into data and perspectives.
+                    </p>
+
+                    <div className={styles.cardLine} />
+                  </div>
+                  <div className="col-lg-6 col-sm-12">
+                    <div className="d-flex align-items-start">
+                      <span className={styles.newsPaperIcon}>
+                        <FontAwesomeIcon
+                          className={styles.pricingCheck}
+                          icon={faNewspaper}
+                        />
+                      </span>
+                      <div className="mb-4">
+                        <h4>Bond ETFs</h4>
+                        <h6>Double your Earnings</h6>
+                      </div>
+                    </div>
+
+                    <p>
+                      Increase your earning potential on extra cash with low
+                      volatility. Ideal when saving for purchases in the next
+                      1–3 years.
+                    </p>
+
+                    <div className={styles.cardLine} />
+                  </div>
                 </div>
               </div>
             </div>
@@ -519,7 +573,7 @@ export default function Home() {
             <h1>We strive to offer an unparalleled experience</h1>
             <div className="d-flex mt-3 justify-content-between">
               <p>
-                Join over 3 million Canadians who choose Wealthsimple to invest,
+                Join over 3 million Nigerians who choose Wealthsimple to invest,
                 trade, save and more.
               </p>
               <button className="btn btn-lime btn-lg">Get Started</button>
@@ -527,7 +581,7 @@ export default function Home() {
           </div>
 
           <div className="row mt-5">
-            <div className="col-5">
+            <div className="col-lg-5 col-sm-12">
               <div className="card">
                 <h2>More than 500+ Instruments</h2>
                 <p>Indice Training guide to help you better</p>{" "}
@@ -538,20 +592,20 @@ export default function Home() {
                 />
               </div>
             </div>
-            <div className="col-7">
+            <div className="col-lg-7 col-sm-12">
               <div className="card">
                 <div className="d-flex justify-content-between">
                   <div>
                     <h3>Accepting all master cards & currency</h3>
 
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt ut labore et
+                      We give you a wide range of options for adding your cards
+                      and payment options
                     </p>
 
                     <h1>$ 199 M</h1>
 
-                    <p>Traded Volume</p>
+                    <p>Investment Volume</p>
                   </div>
 
                   <img
@@ -562,14 +616,14 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="card mt-4">
+              <div className="card mt-4 py-5">
                 <div className="d-flex justify-content-between">
                   <div>
                     <h3>We strive to offer an unparalleled experience</h3>
 
                     <p className="">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt ut labore et
+                      We offer a wide rande of cryptocurrency assets for your
+                      investments needs
                     </p>
                   </div>
 
@@ -592,12 +646,12 @@ export default function Home() {
               </h1>
 
               <p className="mt-3">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Obcaecati explicabo quas distinctio
+                Earn more on your short-term savings with a high APY delivered
+                through our partner banks
               </p>
 
               <div className="row mt-5">
-                <div className="col-3">
+                <div className="col-lg-3 col-sm-12">
                   <div className="card" style={{ paddingTop: "1.5rem" }}>
                     <div className="card-body">
                       <div>
@@ -608,33 +662,11 @@ export default function Home() {
                           />
                         </span>
                       </div>
-                      <h4 className="mt-4">Online Trading</h4>
-                      <p>Lorem ipsum dolor, sit amet consectetur adipisicing</p>
-
-                      <a className="get-started-link">
-                        Get Started{" "}
-                        <FontAwesomeIcon
-                          className={styles.pricingCheck}
-                          icon={faAngleRight}
-                        />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-3">
-                  <div className="card" style={{ paddingTop: "1.5rem" }}>
-                    <div className="card-body">
-                      <div>
-                        <span className={styles.investIcon}>
-                          <FontAwesomeIcon
-                            className={styles.pricingCheck}
-                            icon={faNewspaper}
-                          />
-                        </span>
-                      </div>
-                      <h4 className="mt-4">Online Trading</h4>
+                      <h4 className="mt-4">High-yield savings</h4>
                       <p>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing.
+                        Best for your daily expenses and your emergency fund,
+                        until you're ready to invest. Increase your earning
+                        potential
                       </p>
 
                       <a className="get-started-link">
@@ -647,7 +679,7 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-                <div className="col-3">
+                <div className="col-lg-3 col-sm-12">
                   <div className="card" style={{ paddingTop: "1.5rem" }}>
                     <div className="card-body">
                       <div>
@@ -658,9 +690,10 @@ export default function Home() {
                           />
                         </span>
                       </div>
-                      <h4 className="mt-4">Real Estate Invest</h4>
+                      <h4 className="mt-4">Made for modern investors</h4>
                       <p>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing.
+                        Get access to rare, innovative investing opportunities
+                        without high fees. Enjoy intuitive tech.
                       </p>
 
                       <a className="get-started-link">
@@ -673,7 +706,7 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-                <div className="col-3">
+                <div className="col-lg-3 col-sm-12">
                   <div className="card" style={{ paddingTop: "1.5rem" }}>
                     <div className="card-body">
                       <div>
@@ -684,9 +717,37 @@ export default function Home() {
                           />
                         </span>
                       </div>
-                      <h4 className="mt-4">Online Trading</h4>
+                      <h4 className="mt-4">Reliable and diversified</h4>
                       <p>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing.
+                        Your money is invested in a wide range of asset classes
+                        across the market.
+                      </p>
+
+                      <a className="get-started-link">
+                        Get Started{" "}
+                        <FontAwesomeIcon
+                          className={styles.pricingCheck}
+                          icon={faAngleRight}
+                        />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-lg-3 col-sm-12">
+                  <div className="card" style={{ paddingTop: "1.5rem" }}>
+                    <div className="card-body">
+                      <div>
+                        <span className={styles.investIcon}>
+                          <FontAwesomeIcon
+                            className={styles.pricingCheck}
+                            icon={faNewspaper}
+                          />
+                        </span>
+                      </div>
+                      <h4 className="mt-4">Supported by experts</h4>
+                      <p>
+                        Our in-house investment team will customize a portfolio
+                        to suit your risk tolerance and goals.
                       </p>
 
                       <a className="get-started-link">
@@ -710,7 +771,7 @@ export default function Home() {
 
             <div className="row mt-5">
               {[1, 2, 3].map((e) => (
-                <div className="col-4" key={e}>
+                <div className="col-lg-4 col-sm-12" key={e}>
                   <div className="card">
                     <div className="card-body">
                       <h4>Core</h4>
@@ -768,8 +829,8 @@ export default function Home() {
 
           <div className="downloadMobileCard">
             <div className="row">
-              <div className="col-7">
-                <h1>Trade.p is partnered with world class brands</h1>
+              <div className="col-lg-7 col-sm-12">
+                <h1>WealthShack is partnered with world class brands</h1>
 
                 <div>
                   <button className="btn btn-lime btn-large">
@@ -784,7 +845,7 @@ export default function Home() {
                   </button>
                 </div>
               </div>
-              <div className="col-5">
+              <div className="col-lg-5 col-sm-12">
                 <h6 className="text-white">Get it on</h6>
                 <h2>Playstore Now</h2>
                 <img
@@ -798,7 +859,7 @@ export default function Home() {
           </div>
 
           <div className="row big-margin">
-            <div className="col-6">
+            <div className="col-lg-6 col-sm-12">
               <h2 style={{ fontSize: "46px" }}>Read what they say about us!</h2>
               <h6>Client's Words & Rating</h6>
 
@@ -808,12 +869,12 @@ export default function Home() {
               </p>
 
               <div className="row review-card-container">
-                <div className="col">
+                <div className="col-lg-6 col-sm-12">
                   <div className="card">
                     <div className="mb-3">
                       {[1, 2, 3, 4, 5].map((e) => (
                         <img
-                        key={e}
+                          key={e}
                           className="review-star"
                           width={18}
                           height={18}
@@ -842,12 +903,12 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-                <div className="col">
+                <div className="col-lg-6 col-sm-12">
                   <div className="card">
                     <div className="mb-3">
                       {[1, 2, 3, 4, 5].map((e) => (
                         <img
-                        key={e}
+                          key={e}
                           className="review-star"
                           width={18}
                           height={18}
@@ -858,7 +919,8 @@ export default function Home() {
                     </div>
                     <p className="text-white">
                       I LOVE Wealthshack and have moved almost all of my
-                      finances there. There are so many options for managing my financez
+                      finances there. There are so many options for managing my
+                      financez
                     </p>
 
                     <div className="d-flex align-items-start">
@@ -881,6 +943,7 @@ export default function Home() {
             <div className="col-1"></div>
             <div className="col-5">
               <img
+                className=""
                 style={{ width: "100%", height: "100%" }}
                 src="http://advanture.icu/tradex/wp-content/uploads/sites/39/2022/12/blogImage05-800x600.jpg"
                 alt=""
@@ -919,7 +982,7 @@ export default function Home() {
       <div className="container-xxl section">
         <footer className="footer big-margin ">
           <div className="row">
-            <div className="col-3">
+            <div className="col-lg-3 col-sm-6">
               <h6>Location to HQ</h6>
               <p>
                 <FontAwesomeIcon
@@ -935,7 +998,7 @@ export default function Home() {
               <h6>Follow on social media</h6>
             </div>
 
-            <div className="col-2">
+            <div className="col-lg-2 col-sm-6">
               <h6>Customer support</h6>
               <p>
                 <FontAwesomeIcon
@@ -970,7 +1033,7 @@ export default function Home() {
                 Terms Policy
               </p>
             </div>
-            <div className="col-2">
+            <div className="col-lg-2 col-sm-6">
               <h6>Quick Links</h6>
               <p>F.A.Q</p>
               <p>Knowledge Base</p>
@@ -978,7 +1041,7 @@ export default function Home() {
               <p>Privacy Policy</p>
               <p>Terms Policy</p>
             </div>
-            <div className="col-2">
+            <div className="col-lg-2 col-sm-6">
               <h6>Investing guides</h6>
               <p>Managed Investing</p>
               <p>Self Direct Investing</p>
