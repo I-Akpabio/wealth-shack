@@ -359,7 +359,7 @@ export default function Home() {
                       const key = item.key;
                       if (activePortfolio[key] > 0) return null;
                       return (
-                        <div className="col-6">
+                        <div className="col-6" key={item.key}>
                           <div className="d-flex mb-2">
                          
                             <h5 className="result-label text-white">
@@ -384,7 +384,7 @@ export default function Home() {
                       const key = item.key;
                       if (activePortfolio[key] == 0) return null;
                       return (
-                        <div className="d-flex mb-2">
+                        <div className="d-flex mb-2" key={item.key}>
                           <div
                             className="resultBadge"
                             style={{ background: item.color }}
@@ -485,8 +485,8 @@ export default function Home() {
 
               <div className="col-8">
                 <div className="row">
-                  {[1, 2, 3, 4].map((e) => (
-                    <div className="col-6">
+                  {[1, 2, 3, 4].map((e, index) => (
+                    <div className="col-6" key={index}>
                       <div className="d-flex align-items-start">
                         <span className={styles.newsPaperIcon}>
                           <FontAwesomeIcon
@@ -710,7 +710,7 @@ export default function Home() {
 
             <div className="row mt-5">
               {[1, 2, 3].map((e) => (
-                <div className="col-4">
+                <div className="col-4" key={e}>
                   <div className="card">
                     <div className="card-body">
                       <h4>Core</h4>
@@ -813,6 +813,7 @@ export default function Home() {
                     <div className="mb-3">
                       {[1, 2, 3, 4, 5].map((e) => (
                         <img
+                        key={e}
                           className="review-star"
                           width={18}
                           height={18}
@@ -846,6 +847,7 @@ export default function Home() {
                     <div className="mb-3">
                       {[1, 2, 3, 4, 5].map((e) => (
                         <img
+                        key={e}
                           className="review-star"
                           width={18}
                           height={18}
